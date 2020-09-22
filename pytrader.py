@@ -13,7 +13,6 @@ from pykiwoom.wrapper import *
 import codecs   #인코딩용 import
 
 form_class = uic.loadUiType("pytrader.ui")[0]
-
 class MyWindow(QMainWindow, form_class):
     def __init__(self):
         super().__init__()
@@ -52,7 +51,7 @@ class MyWindow(QMainWindow, form_class):
 
         # 자동 주문
         # 자동 주문을 활성화 하려면 True로 설정
-        self.is_automatic_order = True
+        self.is_automatic_order = False
         self.in_processing = False
 
         # 자동 선정 종목 리스트 테이블 설정
@@ -205,7 +204,7 @@ class MyWindow(QMainWindow, form_class):
         dialog.exec_()
 
     def set_automated_stocks(self):
-        file_list = ["../data/sell_list.txt", "../data/buy_list.txt"]
+        file_list = ["sell_list.txt", "buy_list.txt"]
         automated_stocks = []
 
         try:
